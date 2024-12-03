@@ -1,15 +1,41 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 
+int coin_toss(void)
+{
+    int a = rand() % 2;
+    if(a==0){
+        return 0;
+    }
+    else{
+        return 1;
+    }
+}
+
+int coin_toss(void);
 int main(void)
 {
+    int toss;
     int front = 0;
     int back = 0;
 
     srand((unsigned)time(NULL));
-    
+
+    for(toss=0;toss<100;toss++)
+    {
+        if(coin_toss()==1)
+        {
+            front++;
+        }
+        else
+        {
+            back++;
+        }
+    }
     printf("동전의 앞면: %d \n", front);
     printf("동전의 뒷면: %d \n", back);
 
     return 0;
 }
+
